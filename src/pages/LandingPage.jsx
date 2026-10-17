@@ -196,7 +196,7 @@ function LandingPage() {
 
           <div className="header-actions">
             <a className="login-link" href="/signin">sign in</a>
-            <a className="button button-primary header-cta" href="/signin">
+            <a className="button button-primary header-cta" href="/signup">
               Get Started
             </a>
           </div>
@@ -218,7 +218,7 @@ function LandingPage() {
             </p>
 
             <div className="hero-actions">
-              <a className="button button-primary" href="/signin">
+              <a className="button button-primary" href="/signup">
                 Get Started Free
               </a>
               <a className="button button-secondary" href="#workspace">
