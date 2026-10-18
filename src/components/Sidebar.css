@@ -1,0 +1,160 @@
+
+.sidebar {
+  width: 250px;
+  min-width: 250px;
+  height: 100vh;
+  padding: 22px 14px;
+  background: #fbfaff;
+  border-right: 1px solid #eeeaf5;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  color: #39364b;
+  overflow-y: auto;
+}
+
+.workspace-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 6px 24px;
+}
+
+.workspace-logo {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: #dcd6ff;
+  color: #6553bd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.workspace-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.workspace-info h2 {
+  font-size: 13px;
+  margin: 0 0 5px;
+  font-weight: 700;
+}
+
+.workspace-info p {
+  font-size: 11px;
+  color: #9691a8;
+  margin: 0;
+}
+
+.workspace-menu {
+  border: none;
+  background: transparent;
+  color: #858096;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebar-link {
+  width: 100%;
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 12px;
+  border: none;
+  border-radius: 9px;
+  background: transparent;
+  color: #6d687f;
+  text-align: left;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  box-sizing: border-box;
+}
+
+.sidebar-link:hover {
+  background: #f0edfa;
+  color: #6553bd;
+}
+
+.sidebar-link.active {
+  background: #eae5ff;
+  color: #6553bd;
+  font-weight: 600;
+}
+
+.sidebar-icon {
+  width: 18px;
+  flex-shrink: 0;
+  text-align: center;
+  font-size: 18px;
+}
+
+.sidebar-section {
+  margin-top: 28px;
+}
+
+.sidebar-heading {
+  padding: 0 12px;
+  margin: 0 0 11px;
+  color: #a19bb0;
+  font-size: 10px;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+}
+
+.project-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 3px;
+  background: #c4b5fd;
+  flex-shrink: 0;
+}
+
+.sidebar-section:nth-of-type(4) .project-dot {
+  background: #f6b8cc;
+}
+
+.new-page-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 28px;
+  padding: 12px;
+  border: 1px dashed #c9c0e5;
+  border-radius: 10px;
+  background: transparent;
+  color: #7665bd;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.new-page-button:hover {
+  background: #f0edfa;
+}
+
+.new-page-button span:first-child {
+  font-size: 19px;
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    width: 210px;
+    min-width: 210px;
+    padding: 16px 10px;
+  }
+}
