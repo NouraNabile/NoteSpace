@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./SignIn.css";
 import "./SignUp.css";
 
@@ -76,13 +77,45 @@ function Logo() {
       <span>NoteSpace</span>
     </a>
   );}
-function SignUp() {
+function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    alert("Sign-up UI only — account creation is not connected yet.");
+  
+const navigate = useNavigate();
+
+function handleSubmit(event) {
+  event.preventDefault();
+
+  const formData = new FormData(event.currentTarget);
+
+  const email = formData.get("email").trim().toLowerCase();
+  const password = formData.get("password");
+
+  const users = JSON.parse(
+    localStorage.getItem("users") || "[]"
+  );
+
+  const user = users.find(
+    (user) =>
+      user.email === email &&
+      user.password === password
+  );
+
+  if (!user) {
+    alert("Invalid email or password!");
+    return;
   }
+
+  localStorage.setItem("currentUser", JSON.stringify({
+    fullname: user.fullname,
+    email: user.email,
+  }));
+
+  alert("Login successful!");
+
+  navigate("/dashboard");
+}
+
   
 
   return (
@@ -215,4 +248,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default SignIn;
