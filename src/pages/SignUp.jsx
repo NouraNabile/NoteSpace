@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./SignIn.css";
 import "./SignUp.css";
 
@@ -79,10 +80,41 @@ function Logo() {
   );}
 function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   function handleSubmit(event) {
     event.preventDefault();
-    alert("Sign-up UI only — account creation is not connected yet.");
+
+    const formData = new FormData(event.currentTarget);
+
+    const fullname = formData.get("fullname").trim();
+    const email = formData.get("email").trim().toLowerCase();
+    const password = formData.get("password");
+
+    const users = JSON.parse(
+      localStorage.getItem("users") || "[]"
+    );
+
+    const userExists = users.some(
+      (user) => user.email === email
+    );
+
+    if (userExists) {
+      alert("This email is already registered!");
+      return;
+    }
+
+    users.push({
+      fullname,
+      email,
+      password,
+    });
+
+    localStorage.setItem("users", JSON.stringify(users));
+
+    alert("Account created successfully!");
+
+    navigate("/dashboard");
   }
 
   return (
